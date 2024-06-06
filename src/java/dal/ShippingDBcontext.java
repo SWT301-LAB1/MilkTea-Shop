@@ -6,7 +6,6 @@
 package dal;
 
 import context.DBContext;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -20,27 +19,28 @@ import model.Shipping;
  */
 public class ShippingDBcontext extends DBContext{
     public int createReturnId(Shipping shipping) {
-        try {
-            String sql = "INSERT INTO [dbo].[Shipping]\n"
-                    + "           ([name]\n"
-                    + "           ,[phone]\n"
-                    + "           ,[address])\n"
-                    + "     VALUES\n"
-                    + "           (?,?,?)";
-            
-            PreparedStatement stm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        String sql = "INSERT INTO [dbo].[Shipping] ([name], [phone], [address]) OUTPUT INSERTED.ID VALUES (?, ?, ?)";
+
+        try (PreparedStatement stm = connection.prepareStatement(sql)) {
+            // Set the values for the name, phone, and address parameters
             stm.setString(1, shipping.getName());
             stm.setString(2, shipping.getPhone());
             stm.setString(3, shipping.getAddress());
-            stm.executeUpdate();
-            
-            ResultSet rs = stm.getGeneratedKeys();
-            if(rs.next()){
-                return rs.getInt(1);
+
+            // Execute the insert statement
+            ResultSet rs = stm.executeQuery();
+
+            // Retrieve the generated ID from the result set
+            if (rs.next()) {
+                return rs.getInt("ID");
             }
         } catch (Exception ex) {
+            // Log the exception with SEVERE level
             Logger.getLogger(ShippingDBcontext.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        // Return 0 if no key was generated or an exception occurred
         return 0;
     }
+
 }
