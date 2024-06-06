@@ -85,7 +85,6 @@
                                 <td>
                                     <img src="${p.getProductImage()}">
                                 </td>
-
                                 <td>${p.getProductPrice()}</td>
                                 <td>${p.getQuantity()}</td>
                                 <td>

@@ -6,19 +6,13 @@
 package controller;
 
 import dal.AcountDBContext;
-import dal.CategoryDBContext;
-import dal.ProductDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Account;
-import model.Category;
-import model.Product;
 
 /**
  *
