@@ -142,20 +142,19 @@ public class AcountDBContext extends DBContext {
     }
 
     public void insertAccount(String user, String pass) {
-        try {
             String sql = "INSERT INTO [Account]\n"
-                    + "           ([user]\n"
-                    + "           ,[pass]\n"
-                    + "           ,[isSell]\n"
-                    + "           ,[isAdmin]\n"
-                    + "           ,[active])\n"
-                    + "     VALUES\n"
-                    + "           (?\n"
-                    + "           ,?\n"
-                    + "           ,0\n"
-                    + "           ,0\n"
-                    + "           ,1)";
-            PreparedStatement stm = connection.prepareStatement(sql);
+                + "           ([user]\n"
+                + "           ,[pass]\n"
+                + "           ,[isSell]\n"
+                + "           ,[isAdmin]\n"
+                + "           ,[active])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,0\n"
+                + "           ,0\n"
+                + "           ,1)";
+        try (PreparedStatement stm = connection.prepareStatement(sql)) {
             stm.setString(1, user);
             stm.setString(2, pass);
             stm.executeUpdate();
