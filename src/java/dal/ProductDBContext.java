@@ -14,12 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Category;
 import model.Product;
 
 
 public class ProductDBContext extends DBContext {
-
+    private static final Logger LOGGER = Logger.getLogger(ProductDBContext.class.getName());
     public List<Product> getAllProducts() {
         List<Product> list = new ArrayList<>();
         try {
@@ -267,17 +266,16 @@ public class ProductDBContext extends DBContext {
 
     public List<Product> getAllProductsLast() {
         List<Product> list = new ArrayList<>();
-        try {
-            String sql = "SELECT TOP 4 * FROM product ORDER BY ID DESC";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
+        String sql = "SELECT TOP 4 * FROM product ORDER BY ID DESC";
+        try (PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();){
             while (rs.next()) {
                 Product product = new Product();
                 product.setId(rs.getInt(1));
                 product.setName(rs.getString(2));
                 product.setImageUrl(rs.getString(3));
                 product.setPrice(rs.getDouble(4));
-                product.setTiltle(rs.getString(5));
+                product.setTiltle(rs.getString(5)); 
                 product.setDescription(rs.getString(6));
                 product.setCategoryId(rs.getInt(7));
                 product.setSell_ID(rs.getInt(8));
@@ -293,7 +291,7 @@ public class ProductDBContext extends DBContext {
         ProductDBContext a = new ProductDBContext();
         List<Product> list = a.getAllProducts();
         for (Product product : list) {
-            System.out.println(product.getName());
+           LOGGER.log(Level.INFO, product.getName());
         }
     }
 }

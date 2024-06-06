@@ -38,7 +38,6 @@ public class OrderDetailDBcontext extends DBContext {
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, orderId);
             for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
-                Integer productId = entry.getKey();
                 Cart cart = entry.getValue();
                 stm.setString(2, cart.getProduct().getName());
                 stm.setString(3, cart.getProduct().getImageUrl());
