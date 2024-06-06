@@ -90,7 +90,7 @@
                                 <td>${p.getQuantity()}</td>
                                 <td>
                                     <a href="load?pid=${p.id}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#" class="delete" data-toggle="modal" onclick="doDelete(${p.getId()})"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <button href="#" class="delete" data-toggle="modal" onclick="doDelete(${p.getId()})"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -111,6 +111,7 @@
             </div>
             <a href="#">
                 <button type="button" class="btn btn-primary" onclick="back()">Back to home</button>
+            </a>
 
         </div>
         <!-- Edit Modal HTML -->
@@ -120,31 +121,31 @@
                     <form action="add" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Add Product</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">					
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input name="name" type="text" class="form-control" required >
-                            </div>
-                            <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input name="name" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input name="image" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input name="price" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <textarea name="title" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
                                 <select name="category" class="form-select" aria-label="Default select example">
                                     <c:forEach items="${listCategories}" var="o">
                                         <option value="${o.cid}">${o.cname}</option>
@@ -161,11 +162,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
         <script src="js/ManagerProduct.js" type="text/javascript"></script>
     </body>
 </html>

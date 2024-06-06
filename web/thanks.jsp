@@ -49,7 +49,7 @@
                                 <input type="hidden" name="productId" value="${C.value.product.id}"/>
                                 <th scope="row">${C.value.product.id}</th>
                                 <td>${C.value.product.name}</td>
-                                <td><img src="${C.value.product.imageUrl}" width="50"/></td>
+                                <td><img src="${C.value.product.imageUrl}" width="50" alt="${C.value.product.name}"/></td>
                                 <td>${C.value.product.price}</td>
                                 <td>${C.value.quantity}</td>
                                 <td>${C.value.product.price*C.value.quantity}</td>
