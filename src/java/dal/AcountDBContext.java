@@ -211,17 +211,22 @@ public class AcountDBContext extends DBContext {
         }
     }
 
-    public void UpDatePassWord(String pass, String user) {
+    public void UpDatePassWord(String pass, String user) throws SQLException {
+        PreparedStatement stm = null;
         try {
             String sql = "UPDATE [Account]\n"
                     + "   SET [pass] = ?\n"
                     + " WHERE [user] = ?";
-            PreparedStatement stm = connection.prepareStatement(sql);
+            stm = connection.prepareStatement(sql);
             stm.setString(1, pass);
             stm.setString(2, user);
             stm.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AcountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+           if(stm!= null){
+               stm.close();
+           } 
         }
     }
 }

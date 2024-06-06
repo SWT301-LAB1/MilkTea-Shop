@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cart;
-import model.Order;
 import model.OrderDetail;
 
 /**
