@@ -69,9 +69,7 @@
                                                 <a href="login">Back to Login</a>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"> 
-                                    </div>
+       
                                 </div>
                             </div>
                         </div>

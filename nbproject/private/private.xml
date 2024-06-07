@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HLC/Documents/PRJ301-BL5/Project%20PRJ/MilkTeaShop/web/components/navBarComponent.jsp</file>
+            <file>file:/D:/SWT301/MilkTeaShop/src/java/model/Account.java</file>
+            <file>file:/D:/SWT301/MilkTeaShop/src/java/controller/manager/ManagerCategoryController.java</file>
+            <file>file:/D:/SWT301/MilkTeaShop/web/EditAccount.jsp</file>
+            <file>file:/D:/SWT301/MilkTeaShop/src/java/dal/AcountDBContext.java</file>
+            <file>file:/D:/SWT301/MilkTeaShop/src/java/controller/manager/ManagerAccountController.java</file>
+            <file>file:/D:/SWT301/MilkTeaShop/src/java/controller/manager/ManagerController.java</file>
+            <file>file:/D:/SWT301/MilkTeaShop/src/java/controller/manager/MannagerOrderController.java</file>
         </group>
     </open-files>
 </project-private>
